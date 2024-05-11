@@ -1,42 +1,47 @@
-SIMULATION AND IMPLEMENTATION OF MULTIPLIER
-AIM : To simulate and synthesis multiplier using Vivado Software
+# SIMULATION AND IMPLEMENTATION OF MULTIPLIER
+**AIM :**
+ To simulate and synthesis multiplier using Vivado Software
 
-APPARATUS REQUIRED : Vivado™ ML 2023.2
+**APPARATUS REQUIRED :** Vivado™ ML 2023.2
+   
+**PROCEDURE:**
 
-PROCEDURE:
+1. Open Vivado: Launch Xilinx Vivado software on your computer.
 
-Open Vivado: Launch Xilinx Vivado software on your computer.
+2. Create a New Project: Click on "Create Project" from the welcome page or navigate through "File" > "Project" > "New".
 
-Create a New Project: Click on "Create Project" from the welcome page or navigate through "File" > "Project" > "New".
+3. Project Settings: Follow the prompts to set up your project. Specify the project name, location, and select RTL project type.
 
-Project Settings: Follow the prompts to set up your project. Specify the project name, location, and select RTL project type.
+4. Add Design Files: Add your Verilog design files to the project. You can do this by right-clicking on "Design Sources" in the Sources window, then selecting "Add Sources". Choose your Verilog files from the file browser.
 
-Add Design Files: Add your Verilog design files to the project. You can do this by right-clicking on "Design Sources" in the Sources window, then selecting "Add Sources". Choose your Verilog files from the file browser.
+5. Specify Simulation Settings: Go to "Simulation" > "Simulation Settings". Choose your simulation language (Verilog in this case) and simulation tool (Vivado Simulator).
 
-Specify Simulation Settings: Go to "Simulation" > "Simulation Settings". Choose your simulation language (Verilog in this case) and simulation tool (Vivado Simulator).
+6. Run Simulation: Go to "Flow" > "Run Simulation" > "Run Behavioral Simulation". This will launch the Vivado Simulator and compile your design for simulation.
 
-Run Simulation: Go to "Flow" > "Run Simulation" > "Run Behavioral Simulation". This will launch the Vivado Simulator and compile your design for simulation.
+7. Set Simulation Time: In the Vivado Simulator window, set the simulation time if it's not set automatically. This determines how long the simulation will run.
 
-Set Simulation Time: In the Vivado Simulator window, set the simulation time if it's not set automatically. This determines how long the simulation will run.
+8. Run Simulation: Start the simulation by clicking on the "Run" button in the simulation window.
 
-Run Simulation: Start the simulation by clicking on the "Run" button in the simulation window.
+9. View Results: After the simulation completes, you can view waveforms, debug signals, and analyze the behavior of your design.
 
-View Results: After the simulation completes, you can view waveforms, debug signals, and analyze the behavior of your design.
+**Logic Diagram**
+2 bit Multiplier
 
-Logic Diagram 2 bit Multiplier
+![image](https://github.com/navaneethans/VLSI-LAB-EXP-3/assets/6987778/7713750f-65e6-41c0-8082-5005eac4031c)
 
-image
+**4 Bit Multiplier**
 
-4 Bit Multiplier
+![image](https://github.com/navaneethans/VLSI-LAB-EXP-3/assets/6987778/d95215dd-8cf1-4e08-93cc-96adfdd7fbdc)
 
-image
 
-EXPERIMENTS :
+**EXPERIMENTS :**
 
-#1 MULTIPLIER_2BIT :-
+#1
+MULTIPLIER_2BIT :-
 
 Code:
 
+```
 module multiplier2by2(C,A,B);
 input [1:0]A,B;
 output [3:0]C;
@@ -54,20 +59,24 @@ output sum,carry;
 xor(sum,a,b);
 and(carry,a,b);
 endmodule
+```
+
 OUTPUT:-
 
 Simulation:
 
-image
+![image](https://github.com/lycanthrope004/VLSI-LAB-EXP-3/assets/121667830/8686b9a2-c6c8-49f0-94a8-6391c0beffbd)
 
 Elaborated Design:
 
-image
+![image](https://github.com/lycanthrope004/VLSI-LAB-EXP-3/assets/121667830/6b3a4033-b893-45c1-804f-d5957bdc6a68)
 
-#2 MULTIPLIER_4BIT :-
+#2
+MULTIPLIER_4BIT :-
 
 Code:
 
+```
 module multiplier4bit(m,a,b);
 input[3:0]a,b;
 output[7:0]m;
@@ -122,15 +131,19 @@ output sum,cout;
     assign sum = (a ^ b ^ c );
     assign cout = (a & b ) | (b & c) | (a & c);
 endmodule
+```
+
 OUTPUT:-
 
 Simulation:
 
-Screenshot 2024-04-20 135835
+![Screenshot 2024-04-20 135835](https://github.com/lycanthrope004/VLSI-LAB-EXP-3/assets/121667830/ef302897-9990-4f71-9ee9-34ed1a3bbf7e)
 
 Elaborated Design :
 
-Screenshot 2024-04-20 135933
+![Screenshot 2024-04-20 135933](https://github.com/lycanthrope004/VLSI-LAB-EXP-3/assets/121667830/d3a49859-1a30-4ad4-b0a8-94bd689a4c23)
 
-Result : The Simulation and Synthesis Multiplier Successfully Verified using Vivado Software .
+
+**Result :** The Simulation  and Synthesis Multiplier Successfully Verified using Vivado Software .
+
 
