@@ -1,3 +1,72 @@
+SIMULATION AND IMPLEMENTATION OF MULTIPLIER
+AIM : To simulate and synthesis multiplier using Vivado Software
+
+APPARATUS REQUIRED : Vivado™ ML 2023.2
+
+PROCEDURE:
+
+Open Vivado: Launch Xilinx Vivado software on your computer.
+
+Create a New Project: Click on "Create Project" from the welcome page or navigate through "File" > "Project" > "New".
+
+Project Settings: Follow the prompts to set up your project. Specify the project name, location, and select RTL project type.
+
+Add Design Files: Add your Verilog design files to the project. You can do this by right-clicking on "Design Sources" in the Sources window, then selecting "Add Sources". Choose your Verilog files from the file browser.
+
+Specify Simulation Settings: Go to "Simulation" > "Simulation Settings". Choose your simulation language (Verilog in this case) and simulation tool (Vivado Simulator).
+
+Run Simulation: Go to "Flow" > "Run Simulation" > "Run Behavioral Simulation". This will launch the Vivado Simulator and compile your design for simulation.
+
+Set Simulation Time: In the Vivado Simulator window, set the simulation time if it's not set automatically. This determines how long the simulation will run.
+
+Run Simulation: Start the simulation by clicking on the "Run" button in the simulation window.
+
+View Results: After the simulation completes, you can view waveforms, debug signals, and analyze the behavior of your design.
+
+Logic Diagram 2 bit Multiplier
+
+image
+
+4 Bit Multiplier
+
+image
+
+EXPERIMENTS :
+
+#1 MULTIPLIER_2BIT :-
+
+Code:
+
+module multiplier2by2(C,A,B);
+input [1:0]A,B;
+output [3:0]C;
+wire w1,w2,w3,w4;
+and (C[0],A[0],B[0]);
+and (w1,A[0],B[1]);
+and (w2,A[1],B[0]);
+and (w3,A[1],B[1]);
+halfadder ha1(C[1],w4,w1,w2);
+halfadder ha2(C[2],C[3],w3,w4);
+endmodule
+module halfadder(sum,carry,a,b);
+input a,b;
+output sum,carry;
+xor(sum,a,b);
+and(carry,a,b);
+endmodule
+OUTPUT:-
+
+Simulation:
+
+image
+
+Elaborated Design:
+
+image
+
+#2 MULTIPLIER_4BIT :-
+
+Code:
 
 module multiplier4bit(m,a,b);
 input[3:0]a,b;
@@ -53,3 +122,15 @@ output sum,cout;
     assign sum = (a ^ b ^ c );
     assign cout = (a & b ) | (b & c) | (a & c);
 endmodule
+OUTPUT:-
+
+Simulation:
+
+Screenshot 2024-04-20 135835
+
+Elaborated Design :
+
+Screenshot 2024-04-20 135933
+
+Result : The Simulation and Synthesis Multiplier Successfully Verified using Vivado Software .
+
